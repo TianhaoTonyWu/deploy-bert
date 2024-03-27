@@ -5,8 +5,8 @@ import sys
 
 # Define endpoint URLs
 urls = {
-    "serverless": "https://us-central1-sp24cmpt756-413621.cloudfunctions.net/bert-function-1",
-    "serverful": "http://104.154.240.101:8080/predict"
+    "serverless": "https://us-central1-cmpt756-413805.cloudfunctions.net/bert-test",
+    "serverful": "http://35.224.81.129:8080/predict"
 }
 
 # Get the deployment type from command line argument
