@@ -6,7 +6,9 @@ import sys
 # Define endpoint URLs
 urls = {
     "serverless": "https://us-central1-cmpt756-413805.cloudfunctions.net/bert-test",
-    "serverful": "http://35.224.81.129:8080/predict"
+    "serverful": "http://34.173.23.209:8080/predict",
+    "serverful-c" : "http://34.173.23.209:8080/predict",
+    "cloudrun": "https://flask-app-raw6rz6aba-uw.a.run.app/predict"
 }
 
 # Get the deployment type from command line argument
@@ -37,13 +39,8 @@ def send_request(sentence):
 # Start timer
 start_time = time.time()
 
-# Send requests concurrently
-with ThreadPoolExecutor(max_workers=10) as executor:
-    futures = [executor.submit(send_request, sentence) for sentence in sentences]
-
-# Wait for all futures to complete
-for future in futures:
-    future.result()
+# Send requests 
+futures = [send_request(sentence) for sentence in sentences]
 
 # Stop timer
 end_time = time.time()

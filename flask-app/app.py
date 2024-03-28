@@ -1,6 +1,8 @@
+import os
 from flask import Flask, request, jsonify
 from transformers import pipeline
 import time
+
 
 app = Flask(__name__)
 
@@ -22,5 +24,7 @@ def predict():
 
     return jsonify({'result': result, 'response_time': response_time})
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
